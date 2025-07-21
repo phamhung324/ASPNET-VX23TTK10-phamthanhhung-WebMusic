@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Favorite";
+    Layout = "~/Views/Shared/LayoutShare.cshtml";
+}
+
+@if (ViewBag.MyFavorite.Count > 0)
+{
+    <h2>Danh sách bài hát yêu thích của bạn: </h2>
+    <ul>
+        @foreach (var item in (IEnumerable<MusicViet.Models.ListSong>) ViewBag.MyFavorite )
+        {
+            <li>
+                <div class="artist-bhhot">
+                    <div class="artist-img">
+                        <img src="~/Content/Images/music.jpg" />
+                    </div>
+                    <div class="artist-name">
+                        @Html.ActionLink(item.SongTitle, "Detail", "DetailSong", new { id = item.Id }, null)
+                    </div>
+                    <div class="artist-luotnghe">
+                        <span class="glyphicon glyphicon-headphones"></span>@item.Views
+                    </div>
+                    <div class="artist-infoplus">
+                        <a href="Url.Content(item.PathMusic)" download>
+                            <span class="glyphicon glyphicon-download-alt"></span>
+                        </a>
+                    </div>
+
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <h2>Hiện tại bạn chưa có bài hát yêu thích nào</h2>
+}
+

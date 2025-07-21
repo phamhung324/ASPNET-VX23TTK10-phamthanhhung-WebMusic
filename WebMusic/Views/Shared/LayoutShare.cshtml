@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nhạc của mình</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.5/waves.min.css'>
+    <link rel='stylesheet prefetch' href='https://michael-zhigulin.github.io/mz-codepen-projects/Material%20Design%20UI%20Audio%20Player/font/font.css'>
+    <link href="~/Content/Css/style.css" rel="stylesheet" />
+    <link href="~/Content/Css/bxh.css" rel="stylesheet" />
+    <link href="~/Content/Css/AudioCss.css" rel="stylesheet" />
+    <link href="~/Content/Css/Detail.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        a:hover {
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ms-home-layout">
+        <div class="ms-header">
+            @*@RenderPage("Header.cshtml")*@
+        </div>
+        <div class="ms-menu">
+            @RenderPage("MenuHeader.cshtml")
+        </div>
+        @RenderBody()
+        <div class="ms-footer">
+            Website nghe nhạc online miễn phí.
+            <span>Được thiết kế bởi Dương Đình Nghĩa</span>
+            <span>Lớp D14PM01</span>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myCarousel').carousel({
+                interval: 2000
+            });
+
+            var clickEvent = false;
+            $('#myCarousel').on('click', 'subimg li', function () {
+                clickEvent = true;
+                $('subimg" li').removeClass('active');
+                $(this).parent().addClass('active');
+            }).on('slid.bs.carousel', function (e) {
+                if (!clickEvent) {
+                    var count = $('subimg').children().length - 1;
+                    var current = $('subimg li.active');
+                    current.removeClass('active').next().addClass('active');
+                    var id = parseInt(current.data('slide-to'));
+                    if (count == id) {
+                        $('subimg li').first().addClass('active');
+                    }
+                }
+                clickEvent = false;
+            });
+        });
+    </script>
+</body>
+
+</html>

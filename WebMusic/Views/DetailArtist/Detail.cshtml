@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/LayoutShare.cshtml";
+}
+
+<div class="ms-home-top">
+    <div class="ms-bxh-tophit">
+        <div class="ms-bxh-infotophit">
+            <div class="ms-tieusu">
+                <img src="@Url.Content(ViewBag.Artist.PathArtist)" alt="Anh" />
+                <div class="ms-tieusu-content">
+                    <h3>Tiểu sử: @ViewBag.Artist.NameArtist</h3>
+                    <span>@ViewBag.Artist.Story</span>
+                </div>
+            </div>
+        </div>
+        <div class="artist-listtophit">
+            <h4>Danh sách bài hát của @ViewBag.Artist.NameArtist</h4>
+            <ul>
+                @foreach (var item in ViewBag.Artist.listSong as List<MusicViet.DataModel.Song>)
+                {
+                    <li>
+                        <div class="artist-bhhot">
+                            <div class="artist-img">
+                                <img src="~/Content/Images/music.jpg" />
+                            </div>
+                            <div class="artist-name">
+                                @Html.ActionLink(item.SongTitle, "Detail", "DetailSong", new { id = item.SongId }, null)
+                            </div>
+                            <div class="artist-luotnghe">
+                                <span class="glyphicon glyphicon-headphones"></span>@item.Views
+                            </div>
+                            <div class="artist-infoplus">
+                                <a href="@Url.Content(item.PathMusic)" download>
+                                    <span class="glyphicon glyphicon-download-alt"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div></div>
+    </div>
+    @RenderPage("../Shared/BHXGenres.cshtml")
+</div>
+<div class="ms-home-bottom">
+
+</div>
+

@@ -1,0 +1,53 @@
+﻿@model MusicViet.DataModel.Singer
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Bạn có muốn xóa Ca sĩ này không</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SingerName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SingerName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SingerPic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SingerPic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SingerStory)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SingerStory)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index", new object { }, new { @class = "btn btn-default", role = "button" })
+            </div>
+        }
+    </div>
+</body>
+</html>

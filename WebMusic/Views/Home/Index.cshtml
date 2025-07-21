@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var stt = 1;
+}
+
+<div class="ms-home-top">
+    <div class="ms-home-carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="#"><img src="~/Content/Images/banner.png" style="width:650px; height:280px;"></a>
+
+                </div>
+                <div class="item">
+                    <a href="#"><img src="~/Content/Images/banner1.jpg" style="width:650px; height:280px;"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="~/Content/Images/banner2.jpg" style="width:650px; height:280px;"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="~/Content/Images/banner3.jpg" style="width:650px; height:280px;"></a>
+                </div>
+            </div>
+            <ul class="subimg">
+                <li data-target="#myCarousel" data-slide-to="0" class="active">
+                    <a href="#"><img src="~/Content/Images/banner.png" style="width:110px; height:50px;"></a>
+
+                </li>
+                <li data-target="#myCarousel" data-slide-to="1">
+                    <a href="#"><img src="~/Content/Images/banner1.jpg" style="width:110px; height:50px;"></a>
+                </li>
+                <li data-target="#myCarousel" data-slide-to="2">
+                    <a href="#"><img src="~/Content/Images/banner2.jpg" style="width:110px; height:50px;"></a>
+                </li>
+                <li data-target="#myCarousel" data-slide-to="3">
+                    <a href="#"><img src="~/Content/Images/banner3.jpg" style="width:110px; height:50px;"></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="ms-home-bxh">
+        <p>Danh sách bảng xếp hạng</p>
+        <ul>
+            @foreach (var topmusic in (IEnumerable<MusicViet.Models.ListSong>)ViewBag.listSong)
+            {
+                <li>
+                    <span style="color: blueviolet; font-size: 16px; font-weight: 600;">0@(stt++)</span>
+                    @Html.ActionLink(topmusic.SongTitle, "Detail", "DetailSong", new { id = topmusic.Id }, null)
+
+                    <span>Lượt nghe: @topmusic.Views</span>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+<div class="ms-home-bottom">
+    <h3>
+        NHẠC MỚI
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </h3>
+    <div class="ms-home-nhacmoi">
+        @foreach (var newmusic in ViewBag.listNewSong as List<MusicViet.Models.ListNewSong>)
+        {
+
+            <div>
+                <img src="~/Content/Images/music.jpg" alt="@newmusic.SongTitle" style="border:1px solid rgba(209, 209, 209, 0.72);">
+                @Html.ActionLink(newmusic.SongTitle, "Detail", "DetailSong", new { id = newmusic.id }, new { style = "width:120px;text-align:center; height:40px; display:block;" })
+                <div style="text-align:center;">
+
+                    @Html.ActionLink(newmusic.SingerName, "Detail", "DetailArtist", new { id = newmusic.SingerId, artist = "singer" }, new { style = " color: black;" })
+                </div>
+                
+            </div>
+        }
+    </div>
+    <h3>
+        NHẠC HOT
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </h3>
+    <div class="ms-home-nhachot">
+        @foreach (var hotmusic in ViewBag.listSong as List<MusicViet.Models.ListSong> )
+        {
+            <div>
+                <img src="~/Content/Images/music2.png" alt="@hotmusic.SongTitle" style="border: 1px solid rgba(209, 209, 209, 0.72); width: 120px;height:120px;">
+                @Html.ActionLink(hotmusic.SongTitle, "Detail", "DetailSong", new { id = hotmusic.Id }, new { style = "width:120px;text-align:center; height:40px; display:block;" })
+                @Html.ActionLink(hotmusic.SingerName, "Detail", "DetailArtist", new { id = hotmusic.SingerId, artist = "singer" }, new { style = " color: black; width:120px;text-align:center; display:block;" })
+            </div>
+        }
+    </div>
+    <h3>
+        ALBUM MỚI
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </h3>
+    <div class="ms-home-albumnew">
+        @foreach (var item in ViewBag.listAblum)
+        {
+            <div>
+                <img src="~/ImageUpload/single.png" alt="" style="border: 1px solid rgba(209, 209, 209, 0.72); width: 120px;height:120px;" />
+                <span style="width:120px;text-align:center; padding-top:4px;">@item.AlbumTitle</span>
+            </div>
+        }
+
+    </div>
+    <h3>
+        NGHÊ SĨ HOT
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </h3>
+    <div class="ms-home-nghesihot">
+        @foreach (var item in ViewBag.listMusician)
+        {
+            <div>
+                <img src="@Url.Content(item.MusicianPic)" alt="" style="border: 1px solid rgba(209, 209, 209, 0.72); width: 120px;height:120px;" />
+                <span style="width:120px;text-align:center; padding-top:4px;">@item.MusicianName</span>
+            </div>
+        }
+    </div>
+</div>

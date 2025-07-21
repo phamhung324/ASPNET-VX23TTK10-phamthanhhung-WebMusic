@@ -1,0 +1,100 @@
+.ms-bxh-bhhot {
+    display: flex;
+}
+
+.ms-bxh-tophit, .ms-bxh-theloai {
+    margin: 20px;
+}
+
+.ms-bxh-tophit {
+    width: 70%;
+}
+
+.ms-bxh-listtophit {
+    margin-top: 30px;
+}
+
+    .ms-bxh-listtophit img {
+        width: 100px;
+        height: 100px;
+    }
+
+.ms-bxh-theloai {
+    width: 40%;
+}
+
+    .ms-bxh-theloai h4 {
+        text-transform: uppercase;
+    }
+
+    .ms-bxh-theloai ul li {
+        margin: 10px;
+    }
+
+    .ms-bxh-theloai img {
+        width: 300px;
+        height: 90px;
+    }
+
+/* Danh sách Bài hát trong bảng xếp hạng */
+.bxh-bh-stt, .bxh-bh-infoplus, .bxh-bh-luotnghe {
+    line-height: 100px;
+}
+
+.ms-bxh-bhhot {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bxh-bh-stt {
+    display: block;
+    flex-basis: 50px;
+    font-size: 30px;
+    font-style: bold;
+}
+
+.bxh-bh-luotnghe, .bxh-bh-infoplus {
+    width: 100px;
+    text-align: right;
+    color: rgb(8, 103, 112);
+}
+
+    .bxh-bh-luotnghe span {
+        padding-right: 10px;
+    }
+
+    .bxh-bh-infoplus a:first-child {
+        padding-right: 20px;
+    }
+
+.bxh-bh-name {
+    width: 250px;
+}
+
+    .bxh-bh-name a {
+        display: block;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+
+.ms-bxh-listtophit ul > li {
+    padding: 10px;
+    border-bottom: 1px solid rgb(214, 216, 216);
+}
+
+.ms-bxh-listtophit ul li:hover {
+    background-color: rgba(226, 226, 226, 0.918);
+}
+
+@media screen and (max-width: 860px) {
+    .ms-bxh-theloai {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .ms-bxh-theloai img {
+        width: 150px;
+        height: 50px;
+    }
+}

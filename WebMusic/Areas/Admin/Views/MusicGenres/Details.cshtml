@@ -1,0 +1,48 @@
+﻿@model MusicViet.DataModel.MusicGenres
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>MusicGenres</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicGenresName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicGenresName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicGenresPic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicGenresPic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DesMusicGenres)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DesMusicGenres)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MusicGenresId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@model MusicViet.DataModel.Album
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Album</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AlbumTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AlbumTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AblumPhoto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AblumPhoto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DesAlbum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DesAlbum)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

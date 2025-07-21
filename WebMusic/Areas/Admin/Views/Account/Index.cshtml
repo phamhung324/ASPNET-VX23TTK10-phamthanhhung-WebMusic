@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MusicViet.DataModel.Account>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="font-size:20px; text-align:center; font-weight: 600;">DANH SÁCH TÀI KHOẢN</h2>
+    <p>
+        @Html.ActionLink("Thêm mới", "Create", new object { }, new { @class = "btn btn-info", role = "button" })
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Họ và Tên
+                </th>
+                <th>
+                    Tên tài khoản
+                </th>
+                <th>
+                    Mật khẩu
+                </th>
+                <th>
+                   Email
+                </th>
+                <th>
+                    Đường dẫn dại diện
+                </th>
+                <th>
+                    Quyền
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fullname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Avatar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model MusicViet.DataModel.Musician
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Musician</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicianName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicianName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicianPic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicianPic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicianStory)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicianStory)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MusicianId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

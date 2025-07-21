@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "BXH";
+    Layout = "~/Views/Shared/LayoutShare.cshtml";
+    var stt = 1;
+}
+
+<div class="ms-home-top">
+    <div class="ms-bxh-tophit">
+        <div class="ms-bxh-infotophit">
+            <h3>
+                BẢNG XẾP HẠNG BÀI HÁT
+            </h3>
+            Bảng xếp hảng là danh sách những ca khúc hot nhất hiện tại của từng thể loại nhạc, được hệ thống tự động đề xuất dựa trên
+            thông tin số liệu lượt nghe và lượt chia sẻ của từng bài hát trên cả desktop và mobile. Dữ liệu sẽ được
+            lấy trong 30 ngày gần nhất và được cập nhật liên tục.
+        </div>
+        <div class="ms-bxh-listtophit">
+            <ul>
+                @foreach (var item in ViewBag.GetBHX as List<MusicViet.Models.ListSong>)
+                {
+                    <li>
+                    <div class="ms-bxh-bhhot">
+                        <span class="bxh-bh-stt">@(stt++)</span>
+                        <div class="bxh-bh-img">
+                            <img src="@Url.Content(item.PathSinger)" alt="">
+                        </div>
+                        <div class="bxh-bh-name">                        
+                            @Html.ActionLink(item.SongTitle, "Detail", "DetailSong", new { id = item.Id }, null)
+                            
+                            @Html.ActionLink(item.SingerName,"Detail","DetailArtist", new { id = item.SingerId, artist = "singer" }, null)
+                        </div>
+                        <div class="bxh-bh-luotnghe">
+                            <span class="glyphicon glyphicon-headphones"></span>@item.Views
+                        </div>
+                        <div class="bxh-bh-infoplus">
+                            <a href="@Url.Content(item.PathMusic)" download>
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <a href="@Url.Action("AddFavorite", "Home", new { id = item.Id })">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </li>
+                }
+                
+            </ul>
+        </div>
+        <div></div>
+    </div>
+    @RenderPage("../Shared/BHXGenres.cshtml")
+</div>
+<div class="ms-home-bottom">
+
+</div>
+
+
+
+

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MusicViet.DataModel.Album>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="font-size:20px; text-align:center; font-weight: 600;">DANH SÁCH ALBUM</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", new object { }, new { @class = "btn btn-info", role = "button" })
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlbumTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AblumPhoto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DesAlbum)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlbumTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AblumPhoto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DesAlbum)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.AlbumId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

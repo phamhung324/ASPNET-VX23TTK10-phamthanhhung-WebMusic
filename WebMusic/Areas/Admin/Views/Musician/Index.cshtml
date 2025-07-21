@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MusicViet.DataModel.Musician>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="font-size:20px; text-align:center; font-weight: 600;">DANH SÁCH NHẠC SĨ</h2>
+    <p>
+        @Html.ActionLink("Thêm mới", "Create", new object { }, new { @class = "btn btn-info", role="button"})
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusicianName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusicianStory)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width:15%;">
+                        @Html.DisplayFor(modelItem => item.MusicianName)
+                    </td>
+                    <td >
+                        @Html.DisplayFor(modelItem => item.MusicianStory)
+                    </td>
+                    <td style="width:15%;">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.MusicianId }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.MusicianId }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MusicianId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

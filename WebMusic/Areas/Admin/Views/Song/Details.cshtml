@@ -1,0 +1,96 @@
+﻿@model MusicViet.DataModel.Song
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Song</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Album.AlbumTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Album.AlbumTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicGenres.MusicGenresName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicGenres.MusicGenresName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Musicians.MusicianName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Musicians.MusicianName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Singer.SingerName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Singer.SingerName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SongTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SongTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PathMusic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PathMusic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateUpload)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateUpload)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Views)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Views)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.WhoUp)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.WhoUp)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.SongId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

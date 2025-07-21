@@ -1,0 +1,53 @@
+﻿@model MusicViet.DataModel.MusicGenres
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Bạn có muốn xóa Thể Loại này không</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicGenresName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicGenresName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MusicGenresPic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MusicGenresPic)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DesMusicGenres)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DesMusicGenres)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index", new object { }, new { @class = "btn btn-default", role = "button" })
+            </div>
+        }
+    </div>
+</body>
+</html>

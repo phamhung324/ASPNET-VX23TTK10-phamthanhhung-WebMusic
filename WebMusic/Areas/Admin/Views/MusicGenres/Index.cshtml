@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MusicViet.DataModel.MusicGenres>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="font-size:20px; text-align:center; font-weight: 600;">DANH SÁCH THỂ LOẠI NHẠC</h2>
+    <p>
+        @Html.ActionLink("Thêm mới", "Create", new object { }, new { @class = "btn btn-info", role = "button" })
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusicGenresName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusicGenresPic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DesMusicGenres)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MusicGenresName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MusicGenresPic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DesMusicGenres)
+                    </td>
+                    <td style="width:15%;">
+                        @Html.ActionLink("Edit", "Edit", new { id=item.MusicGenresId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.MusicGenresId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.MusicGenresId })
+                    </td>
+                </tr>
+    }
+        </tbody>
+    </table>
+</body>
+</html>

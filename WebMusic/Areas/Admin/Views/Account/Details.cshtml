@@ -1,0 +1,70 @@
+﻿@model MusicViet.DataModel.Account
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Chi tiết tài khoản</title>
+</head>
+<body>
+    <div>
+        <h4>Quản lý tài khoản</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Fullname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fullname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Avatar)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmin)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

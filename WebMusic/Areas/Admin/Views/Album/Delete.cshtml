@@ -1,0 +1,52 @@
+﻿@model MusicViet.DataModel.Album
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Bạn có muốn xóa Album này không</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AlbumTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AlbumTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AblumPhoto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AblumPhoto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DesAlbum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DesAlbum)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index", new object { }, new { @class = "btn btn-default", role = "button" })
+            </div>
+        }
+    </div>
+</body>
+</html>

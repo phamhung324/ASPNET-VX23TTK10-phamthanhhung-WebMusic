@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Forgot";
+    Layout = "~/Views/Shared/LayoutShare.cshtml";
+}
+<div class="container">
+    <form class="form-horizontal" action="Home/Forgot" method="post" style="margin-top: 20px; height: 450px;">
+        <div class="form-group">
+            <label class="control-label col-md-4">Tên tài khoản</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="username" placeholder="Nhập tài khoản">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Email</label>
+            <div class="col-md-6">
+                <input type="email" class="form-control" name="Email" placeholder="Nhập email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-md-6">
+                <button type="submit" class="btn btn-default">Gửi</button>
+            </div>
+        </div>
+    </form>
+</div>

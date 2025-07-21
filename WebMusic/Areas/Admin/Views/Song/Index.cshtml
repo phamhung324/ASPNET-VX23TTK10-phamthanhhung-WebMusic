@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MusicViet.DataModel.Song>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="font-size:20px; text-align:center; font-weight: 600;">DANH SÁCH BÀI HÁT</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", new object { }, new { @class = "btn btn-info", role = "button" })
+    </p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Musicians.MusicianName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Singer.SingerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SongTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PathMusic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateUpload)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WhoUp)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Musicians.MusicianName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Singer.SingerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SongTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PathMusic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateUpload)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WhoUp)
+                    </td>
+                    <td style="width:15%;">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SongId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.SongId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SongId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
